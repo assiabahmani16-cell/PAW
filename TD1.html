@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+	<title>tp1</title>
+	<meta charset="utf-8">
+	<style>
+		nav ul {
+			list-style: none;
+			padding: 0;
+			display: flex;
+			gap: 15px;
+			background-color: #eee;
+		}
+
+			nav ul li a {
+				text-decoration: none;
+				padding: 8px 12px;
+				color: #333;
+			}
+
+				nav ul li a:hover {
+					background-color: #ddd;
+				}
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #0094ff;
+        }
+	</style>
+
+</head>
+  <body>
+	  <! --exo1-- >
+      <table border="1">
+            <tr>
+                <th rowspan="2">student id </th>
+                <th rowspan="2">last name</th>
+                <th rowspan="2">first name</th>
+                <th rowspan="2">course</th>
+                <th colspan="2">session date </th>
+            </tr>
+            <tr>
+              <th> present</th>
+              <th>participated</th>
+            </tr>
+          <tr>
+            <td>31505540</td>
+            <td>bahmani</td>                 
+            <td>assia</td>
+            <td>paw</td>                   
+            <td><input type="checkbox"></td>
+            <td><input type="checkbox"></td>                 
+          </tr>
+        </table>
+	  <! --exo2 -- >
+<h2>add a new student </h2>
+	<form action="script.js" method="get">  
+		<fieldset>
+			<legend>the contact form </legend>
+			<div>
+				<label for="num">Student ID </label>
+				<input id="num" type="number" required>
+			</div>
+			<div>
+				<label for="txt">last name </label>
+				<input id="txt" type="text" required > 
+			</div>
+			<div> 
+				<label for="text">first name </label>
+				<input id="text" type="text" required>
+			</div>
+			
+			<div>
+				<label for="txte" >Email</label>
+				<input   id ="txte"type="email" required placeholder="asddr@gmail.com">
+			</div>
+				<input type="submit" value=" submit">
+				
+		</fieldset>
+	</form>
+	  <! --exo3-- >
+	  <h2> Attendance system </h2>
+	  <nav>
+		  <ul>
+			  <li> <a href="#"> Home</a></li>
+			  <li> <a href="#"> Attendance List </a></li>
+			  <li> <a href="#"> Add Student </a></li>
+			  <li> <a href="#"> Reports </a></li>
+			  <li> <a href="#"> Logout</a></li>
+		  </ul>
+	  </nav>
+	  <! --page Content-->
+	  <h3> Welcome!</h3>
+	  <p> this is the attendance system.Use the navigation Links above.</p>
+</body>
+</html>

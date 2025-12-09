@@ -204,40 +204,46 @@
 
         <!-- Add Student Form -->
         <div class="content-box">
-            <form id="addStudentForm">
-                <div class="row">
-                    <div class="col">
-                        <label>Student ID</label>
-                        <input type="text" id="studentId">
-                        <div id="errId" class="errors"></div>
+            <form id="addStudentForm" method="POST" action="add_student.php">
+                    <div class="row">
+                        <div class="col">
+                            <label>Student ID</label>
+                            <input type="text" id="studentId" name="student_id">
+                            <div id="errId" class="errors"></div>
+                        </div>
+                        <div class="col">
+                            <label>Last Name</label>
+                            <input type="text" id="lastName" name="last_name">
+                            <div id="errLast" class="errors"></div>
+                        </div>
+                        <div class="col">
+                            <label>First Name</label>
+                            <input type="text" id="firstName" name="first_name">
+                            <div id="errFirst" class="errors"></div>
+                        </div>
+                        <div class="col">
+                            <label>Email</label>
+                            <input type="email" id="email" name="email">
+                            <div id="errEmail" class="errors"></div>
+                        </div>
+
+                        <div class="col">
+                            <label>Group</label>
+                            <select id="groupSelect" name="group_id">
+                                <option value="">Select group</option>
+                                <option value="1">Group A</option>
+                                <option value="2">Group B</option>
+                            </select>
+                            <div id="errGroup" class="errors"></div>
+                        </div>
+
+                        <div style="min-width:140px">
+                            <label>&nbsp;</label>
+                            <button type="submit">Add Student</button>
+                        </div>
                     </div>
-                    <div class="col">
-                        <label>Last Name</label>
-                        <input type="text" id="lastName">
-                        <div id="errLast" class="errors"></div>
-                    </div>
-                     <div class="col">
-                       <label>Last Name</label>
-                       <input type="text" id="lastName">
-                       <div id="errLast" class="errors"></div>
-                    </div>
-                    <div class="col">
-                        <label>First Name</label>
-                        <input type="text" id="firstName">
-                        <div id="errFirst" class="errors"></div>
-                    </div>
-                    <div class="col">
-                        <label>Email</label>
-                        <input type="email" id="email">
-                        <div id="errEmail" class="errors"></div>
-                    </div>
-                    <div style="min-width:140px">
-                        <label>&nbsp;</label>
-                        <button type="submit">Add Student</button>
-                    </div>
-                </div>
-                <div id="confirmBox" class="confirmation"></div>
-            </form>
+                    <div id="confirmBox" class="confirmation"></div>
+                </form>
         </div>
 
         <!-- Attendance Table -->
@@ -360,10 +366,6 @@
             <canvas id="chartCanvas" height="150"></canvas>
         </div>
     </section>
-    <form action="add_student.php" method="POST">
-    <input type="text" name="name" placeholder="Name">
-    <button type="submit">Send</button>
-<   </form>
 
     <script>
         const tbody = document.getElementById("attendanceTable").tBodies[0];
@@ -430,6 +432,8 @@
 
             alert("Student: " + lastName + " " + firstName + "\nAbsences: " + absCount);
         });
+
+
         $("#searchName").on("keyup", function () {
             const val = $(this).val().toLowerCase();
             $("#attendanceTable tbody tr").each(function () {
@@ -464,8 +468,8 @@
             const total = rows.length;
             const avg = (rows.reduce((s, r) => s + parseInt($(r).find(".abs").text()), 0) / total).toFixed(2);
             $("#reportText").html(`<p>Total Students: ${total}</p>
-<p>Average Absences: ${avg}</p>
-<p>Green (<3): ${green}, Yellow (3-4): ${yellow}, Red (>=5): ${red}</p>`);
+             <p>Average Absences: ${avg}</p>
+             <p>Green (<3): ${green}, Yellow (3-4): ${yellow}, Red (>=5): ${red}</p>`);
             const ctx = document.getElementById("chartCanvas").getContext("2d");
             if (chart) chart.destroy();
             chart = new Chart(ctx, { type: 'bar', data: { labels: ["<3", "3-4", ">=5"], datasets: [{ data: [green, yellow, red], backgroundColor: ["#9be8a9", "#ffe093", "#ff8d8d"] }] }, options: { plugins: { legend: { display: false } } } });
@@ -499,6 +503,9 @@
 
 </body>
 </html>
+
+
+
 
 
 
